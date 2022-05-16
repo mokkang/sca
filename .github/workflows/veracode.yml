@@ -60,5 +60,5 @@ jobs:
       uses: veracode/veracode-uploadandscan-action@0.2.2
       with:
         repository: 'github.com/mokkang/veracode'
-    - run: curl -sSL https://download.sourceclear.com/ci.sh | sh -s scan --ws="6YYCEOx" --json results.json --update-advisor
-
+    - run: curl -sSL https://download.sourceclear.com/ci.sh | sh -s scan --ws="6YYCEOx" --json="results.json" --update-advisor
+    
