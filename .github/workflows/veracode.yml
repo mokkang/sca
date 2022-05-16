@@ -56,3 +56,9 @@ jobs:
       with:
         # Path to SARIF file relative to the root of the repository
         sarif_file: veracode-results.sarif
+    - name: Veracode Upload And Scan
+      uses: veracode/veracode-uploadandscan-action@0.2.2
+      with:
+        repository: 'github.com/mokkang/veracode'
+    - run: curl -sSL https://download.sourceclear.com/ci.sh | sh -s scan --ws=6YYCEOx --json --update-advisor
+
