@@ -13,8 +13,8 @@ on:
   pull_request:
     # The branches below must be a subset of the branches above
     branches: [ main ]
-  schedule:
-    - cron: '28 11 * * 5'
+#  schedule:
+#    - cron: '28 11 * * 5'
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 permissions:
@@ -56,9 +56,9 @@ jobs:
       with:
         # Path to SARIF file relative to the root of the repository
         sarif_file: veracode-results.sarif
-    - name: Veracode Upload And Scan
-      uses: veracode/veracode-uploadandscan-action@0.2.2
-      with:
-        repository: 'github.com/mokkang/veracode'
-    - run: curl -sSL https://download.sourceclear.com/ci.sh | sh -s scan --ws="6YYCEOx" --json="results.json" --update-advisor
+    - name: SCA Scan
+  #    run: curl -sSL https://download.sourceclear.com/ci.sh | sh -s 
+      run:  curl -sSL https://download.sourceclear.com/ci.sh | sh -s scan --json --url https://github.com/mokkang/veracode --ws="6YYCEOx" --update-advisor
+
+  #  - run: curl -sSL https://download.sourceclear.com/ci.sh | sh -s scan --ws="6YYCEOx" --json="results.json" --update-advisor
     
