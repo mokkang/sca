@@ -57,7 +57,7 @@ jobs:
         # Path to SARIF file relative to the root of the repository
         sarif_file: veracode-results.sarif
     - name: SCA Scan
-    - run: curl -sSL https://download.sourceclear.com/ci.sh | sh -s srcclr activate | ${{secrets.SRCCLR_API_TOKEN}}
+    - run: curl -sSL https://download.sourceclear.com/ci.sh | sh -s srcclr activate ${{secrets.SRCCLR_API_TOKEN}}
     - run:  curl -sSL https://download.sourceclear.com/ci.sh | sh -s scan --json --url https://github.com/mokkang/veracode --ws="6YYCEOx" --update-advisor
 
   #  - run: curl -sSL https://download.sourceclear.com/ci.sh | sh -s scan --ws="6YYCEOx" --json="results.json" --update-advisor
